@@ -1,14 +1,23 @@
-Smart hospital management sysmtem with disease prediction system is designed to manage hospital properly and solve use mordern technology in hospital
 
-dowload project 
-pip install -r requirement.txt
-and run the project using
+# Medical Store and Disease Prediction System
+
+This is the backend of medical store and disease prediction system built on django on top of djangorestframework
+
+## Installation
+
+```bash
+git clone https://github.com/g0dgamerz/iw-acad-shmwdps-be/tree/regmicmahesh
+pip install -r requirements.txt
+cd shmwdps
+python manage.py makemigrations
+python manage.py migrate
 python manage.py runserver
+```
 
+## Team Members
 
-This project is made by the combine effort of 4 people.
-Name of developer who made this software are as follows:
-Jidesh Baidya
-Mahesh chandra Regmi
-Suman Ranabhat
-Sunita shrestha
+- Jidesh Baidya
+- Mahesh Chandra Regmi
+- Suman Ranabhat
+- Sunita Shrestha
+
