@@ -1,3 +1,4 @@
+
 # Medical Store and Disease Prediction System
 
 This is the backend of medical store and disease prediction system built on django on top of djangorestframework
@@ -19,3 +20,4 @@ python manage.py runserver
 - Mahesh Chandra Regmi
 - Suman Ranabhat
 - Sunita Shrestha
+
