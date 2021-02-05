@@ -1,7 +1,7 @@
 
-# Medical Store and Disease Prediction System
+# Smart Hospital management with Disease Prediction System
 
-This is the backend of medical store and disease prediction system built on django on top of djangorestframework
+This is the backend of mSmart Hospital management with disease prediction system built on django on top of djangorestframework
 
 ## Installation
 
