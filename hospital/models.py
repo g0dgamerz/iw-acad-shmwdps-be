@@ -1,4 +1,5 @@
 from django.db import models
+from users.models import Patient, Doctor
 
 # Create your models here.
 class HospitalDetail(models.Model):
@@ -21,3 +22,32 @@ class Bed(models.Model):
 
     def __str__(self):
         return str(self.pk) + self.room_no
+
+
+class Lab(models.Model):
+    patient = models.ForeignKey(Patient,on_delete=models.DO_NOTHING,blank=True, null=True)
+    doctor=models.ForeignKey(Doctor,on_delete=models.DO_NOTHING,blank=True, null=True)
+    date=models.DateTimeField(auto_now=True)
+    amount=models.DecimalField()
+
+
+class Appointment(models.Model):
+    patient=models.ForeignKey(Patient,on_delete=models.CASCADE)
+    doctor=models.ForeignKey(Doctor,on_delete=models.CASCADE)
+    appointment_date=models.DateTimeField()
+    fee=models.DecimalField()
+
+class Bill(models.Model):
+    patient=models.ForeignKey(Patient,on_delete=models.DO_NOTHING,blank=True, null=True)
+    appointment=models.OneToOneField(Appointment,on_delete=models.DO_NOTHING,blank=True, null=True)
+    lab=models.OneToOneField(Lab,on_delete=models.DO_NOTHING,blank=True, null=True)
+
+
+class Disease(models.Model):
+    name=models.CharField(max_length=100)
+    def __str__(self):
+        return self.name
+
+class Symptoms(models.Model):
+    name = models.CharField(max_length=100)
+    disease=models.ManyToManyField(Disease)
