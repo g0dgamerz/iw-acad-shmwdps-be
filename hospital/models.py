@@ -43,11 +43,20 @@ class Bill(models.Model):
     lab=models.OneToOneField(Lab,on_delete=models.DO_NOTHING,blank=True, null=True)
 
 
+
+
+class Department(models.Model):
+    dept_name = models.CharField(max_length=100)
+
+
+
 class Disease(models.Model):
-    name=models.CharField(max_length=100)
+    name=models.CharField(max_length=100,)
+    dept=models.ForeignKey(Department,on_delete=models.DO_NOTHING,blank=True, null=True)
     def __str__(self):
         return self.name
 
 class Symptoms(models.Model):
     name = models.CharField(max_length=100)
     disease=models.ManyToManyField(Disease)
+

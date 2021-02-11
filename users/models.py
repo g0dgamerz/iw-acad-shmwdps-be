@@ -46,6 +46,33 @@ class CustomUser(AbstractUser):
     @property
     def is_patient(self):
         return hasattr(self, 'patient')
+        return hasattr(self,'doctor')
+
+    @property
+    def is_nurse(self):
+        return hasattr(self,'nurse')
+
+    @property
+    def is_patient(self):
+        return hasattr(self, 'patient')
+        return hasattr(self,'doctor')
+
+    @property
+    def is_nurse(self):
+        return hasattr(self,'nurse')
+
+    @property
+    def is_patient(self):
+        return hasattr(self, 'patient')
+        return hasattr(self,'doctor')
+
+    @property
+    def is_nurse(self):
+        return hasattr(self,'nurse')
+
+    @property
+    def is_patient(self):
+        return hasattr(self, 'patient')
 
     objects = CustomUserManager()
 
@@ -62,6 +89,15 @@ class Staff(models.Model):
 
 class Doctor(Staff):
     specialist_of = models.CharField(max_length=100)
+    department = models.ForeignKey(to='hospital.Department', on_delete=models.CASCADE)    #TODO: add more
+
+class Nurse(Staff):
+    pass
+
+class Patient(models.Model):
+    #TODO: Disease foreign key.
+    user = models.OneToOneField(to=CustomUser, on_delete=models.CASCADE)
+    # disease = models.ManyToManyField(to='hospital.Disease')
     #TODO: add more
 
 class Nurse(Staff):
