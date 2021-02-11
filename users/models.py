@@ -28,9 +28,9 @@ class CustomUserManager(BaseUserManager):
 class CustomUser(AbstractUser):
     username = None
     email = models.EmailField(_('email address'), unique=True)
-    GENDER_CHOICES = (( 0, 'MALE' ),( 1, "FEMALE" ))
-    gender = models.IntegerField(choices=GENDER_CHOICES)
-    image = models.FileField(upload_to="profile/")
+    GENDER_CHOICES = (( 0, 'MALE' ),( 1, "FEMALE" ), (2, "OTHER"))
+    gender = models.IntegerField(choices=GENDER_CHOICES, default=2)
+    image = models.FileField(upload_to="profile/",null=True,blank=True)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
