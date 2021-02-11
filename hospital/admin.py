@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .model import HospitalDetail,Room,Bed,Lab,Appointment,Bill,Disease,Symptoms
+from .models import HospitalDetail,Room,Bed,Lab,Appointment,Bill,Disease,Symptoms
 
 
 
