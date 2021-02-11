@@ -3,7 +3,6 @@ from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import ugettext_lazy as _
 
-
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password, **extra_fields):
         if not email:
@@ -56,6 +55,10 @@ class Nurse(Staff):
 
 class Patient(models.Model):
     #TODO: Disease foreign key.
+    user = models.OneToOneField(to=CustomUser, on_delete=models.CASCADE)
+    disease = models.ManyToManyField(to='hospital.Disease')
     in_hospital = models.BooleanField()
+    bed = models.OneToOneField(to='hospital.Bed', on_delete=models.DO_NOTHING, null=True,blank=True)
+    
     #TODO: room id
 
