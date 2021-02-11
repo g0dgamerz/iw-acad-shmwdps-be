@@ -34,6 +34,19 @@ class CustomUser(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
+
+    @property
+    def is_doctor(self):
+        return hasattr(self,'doctor')
+
+    @property
+    def is_nurse(self):
+        return hasattr(self,'nurse')
+
+    @property
+    def is_patient(self):
+        return hasattr(self, 'patient')
+
     objects = CustomUserManager()
 
     def __str__(self):
