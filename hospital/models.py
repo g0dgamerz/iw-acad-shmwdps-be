@@ -28,14 +28,14 @@ class Lab(models.Model):
     patient = models.ForeignKey(Patient,on_delete=models.DO_NOTHING,blank=True, null=True)
     doctor=models.ForeignKey(Doctor,on_delete=models.DO_NOTHING,blank=True, null=True)
     date=models.DateTimeField(auto_now=True)
-    amount=models.DecimalField()
+    amount=models.DecimalField(decimal_places=10, max_digits=100)
 
 
 class Appointment(models.Model):
     patient=models.ForeignKey(Patient,on_delete=models.CASCADE)
     doctor=models.ForeignKey(Doctor,on_delete=models.CASCADE)
     appointment_date=models.DateTimeField()
-    fee=models.DecimalField()
+    fee=models.DecimalField(decimal_places=10,max_digits=100)
 
 class Bill(models.Model):
     patient=models.ForeignKey(Patient,on_delete=models.DO_NOTHING,blank=True, null=True)
